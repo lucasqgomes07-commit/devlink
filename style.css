@@ -1,0 +1,82 @@
+:root {
+  --bg: #1b0f2e;
+  --bg-glow: #3a1a63;
+  --surface: #2a1848;
+  --surface-hover: #3a2266;
+  --line: #4b2f7d;
+  --text: #f4eefc;
+  --muted: #b9a6d6;
+  --accent: #7ee0a3; /* verde floresta amazônica */
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  font-family: "DM Sans", system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, var(--bg-glow), transparent 70%),
+    var(--bg);
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1.25rem;
+}
+
+.page { width: 100%; max-width: 480px; display: flex; flex-direction: column; align-items: center; }
+
+.profile { text-align: center; margin-bottom: 2rem; }
+
+.avatar {
+  width: 96px; height: 96px; margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font: 800 2.6rem "Bricolage Grotesque", sans-serif;
+  color: var(--bg);
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 0 6px var(--accent);
+}
+
+h1 { font: 800 2.2rem/1.1 "Bricolage Grotesque", sans-serif; letter-spacing: -0.02em; margin-bottom: .6rem; }
+
+.bio { color: var(--muted); line-height: 1.55; max-width: 36ch; margin: 0 auto; }
+
+nav { width: 100%; }
+
+.links { list-style: none; display: grid; gap: .8rem; }
+
+.links a {
+  display: flex; align-items: center; justify-content: center; gap: .7rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  font: 700 1rem "Bricolage Grotesque", sans-serif;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.links a svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
+.links a:hover { background: var(--surface-hover); border-color: var(--accent); transform: translateY(-2px); }
+.links a:active { transform: translateY(0); }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.share {
+  margin-top: 1.5rem;
+  background: none; border: none; cursor: pointer;
+  color: var(--accent);
+  font: 500 .95rem "DM Sans", sans-serif;
+  text-decoration: underline; text-underline-offset: 4px;
+  padding: .4rem;
+}
+
+.toast { min-height: 1.4rem; margin-top: .4rem; font-size: .9rem; color: var(--muted); }
+
+footer { margin-top: 2.5rem; font-size: .8rem; color: var(--muted); text-align: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .links a { transition: none; }
+  .links a:hover { transform: none; }
+}
